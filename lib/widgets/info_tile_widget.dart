@@ -49,7 +49,7 @@ class InfoTile extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 15.0),
                 child: Container(
-                  width: size.width * 0.35,
+                  width: size.width * 0.33,
                   height: size.height * 0.14,
                   // color: Colors.blue,
                   child: Column(
@@ -58,23 +58,23 @@ class InfoTile extends StatelessWidget {
                       Text(
                         bloodBank.bloodBankName,
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xff24627F),
-                        ),
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff24627F),
+                            fontSize: 12),
                       ),
                       SizedBox(
                         height: 3,
                       ),
                       Text(
                         'Blood Group: ${bloodBank.bloodGroup}',
-                        style: TextStyle(color: Colors.grey, fontSize: 13),
+                        style: TextStyle(color: Colors.grey, fontSize: 11),
                       ),
                       SizedBox(
                         height: 3,
                       ),
                       Text(
                         '+977 ${bloodBank.phone.toString()}',
-                        style: TextStyle(color: Colors.grey, fontSize: 13),
+                        style: TextStyle(color: Colors.grey, fontSize: 11),
                       ),
                       SizedBox(
                         height: 5,
@@ -83,14 +83,15 @@ class InfoTile extends StatelessWidget {
                         children: [
                           FaIcon(
                             FontAwesomeIcons.locationDot,
-                            color: Colors.green,
+                            color: Colors.teal,
+                            size: 20,
                           ),
                           SizedBox(
                             width: 5,
                           ),
                           Text(
                             '${bloodBank.location.toString()} Km far away',
-                            style: TextStyle(color: Colors.green),
+                            style: TextStyle(color: Colors.green, fontSize: 13),
                           )
                         ],
                       )
@@ -100,9 +101,9 @@ class InfoTile extends StatelessWidget {
               ),
               Expanded(
                   child: Container(
-                //  color: Colors.black,
+                //   color: Colors.black,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 22.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -119,7 +120,22 @@ class InfoTile extends StatelessWidget {
                     ],
                   ),
                 ),
-              ))
+              )),
+              Container(
+                width: 28,
+                //  color: Colors.red,
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: Padding(
+                      padding: const EdgeInsets.only(right: 10.0),
+                      child: bloodBank.isFav
+                          ? Icon(
+                              CupertinoIcons.square_favorites_alt,
+                              color: Color(0xff0FC3B3),
+                            )
+                          : SizedBox()),
+                ),
+              )
             ],
           )),
     );

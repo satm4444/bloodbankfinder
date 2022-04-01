@@ -1,5 +1,6 @@
 import 'package:bloodbankfinder/controllers/data_controller.dart';
-import 'package:bloodbankfinder/views/home_screen.dart';
+import 'package:bloodbankfinder/widgets/bottom_nav_bar.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,6 +21,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: HomeScreen());
+        home: BottomNavBarWidget());
   }
 }

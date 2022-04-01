@@ -5,15 +5,16 @@ class BloodBank {
   final int phone;
   final String bloodGroup;
   final String imageUrl;
+  final bool isFav;
 
-  BloodBank({
-    required this.id,
-    required this.bloodBankName,
-    required this.location,
-    required this.phone,
-    required this.bloodGroup,
-    required this.imageUrl,
-  });
+  BloodBank(
+      {required this.id,
+      required this.bloodBankName,
+      required this.location,
+      required this.phone,
+      required this.bloodGroup,
+      required this.imageUrl,
+      required this.isFav});
 
   factory BloodBank.fromJson(Map<String, dynamic> json) => BloodBank(
         id: json['id'],
@@ -22,5 +23,6 @@ class BloodBank {
         phone: json['phone'],
         bloodGroup: json['bloodGroup'],
         imageUrl: json['imageUrl'],
+        isFav: json['isFav'],
       );
 }
