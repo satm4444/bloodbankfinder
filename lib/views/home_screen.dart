@@ -17,20 +17,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: Color(0xff24627F),
-        appBar: AppBar(
-          leading: Icon(CupertinoIcons.back),
-          title: Text("Blood Bank"),
-          elevation: 0,
           backgroundColor: Color(0xff24627F),
-          actions: [Icon(Icons.filter_list), SizedBox(width: 15)],
-        ),
-        body: Obx(() {
-          return Container(
+          appBar: AppBar(
+            leading: Icon(CupertinoIcons.back),
+            title: Text("Blood Bank"),
+            elevation: 0,
+            backgroundColor: Color(0xff24627F),
+            actions: [Icon(Icons.filter_list), SizedBox(width: 15)],
+          ),
+          body: Container(
             decoration: BoxDecoration(
                 color: Color(0xffECF7FB),
                 borderRadius: BorderRadius.only(
@@ -89,18 +87,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 Expanded(
-                  child: ListView.builder(
-                      itemCount: _dataController.newsList.length,
-                      itemBuilder: (context, index) {
-                        final data = _dataController.newsList[index];
-                        return InfoTile(bloodBank: data);
-                      }),
+                  child: Obx(() {
+                    return ListView.builder(
+                        itemCount: _dataController.newsList.length,
+                        itemBuilder: (context, index) {
+                          final data = _dataController.newsList[index];
+                          return InfoTile(bloodBank: data);
+                        });
+                  }),
                 ),
               ],
             ),
-          );
-        }),
-      ),
+          )),
     );
   }
 }

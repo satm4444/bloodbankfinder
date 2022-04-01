@@ -15,6 +15,7 @@ class DataController extends GetxController {
     getData();
   }
 
+//==FOR FETCHING THE DATA FROM THE API==//
   Future<void> getData() async {
     try {
       final response = await http.get(Uri.parse(url));
